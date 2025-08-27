@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- DaisyUI plugin CDN (must come after Tailwind) -->
+    <script src="https://cdn.jsdelivr.net/npm/daisyui@4.10.2/dist/full.js"></script>
+    <title>Emergency Service</title>
+    <style>
+        .color{
+            background: #00A63A;
+        }
+        .border{
+            border-radius: 50px;
+        }
+        .color-2{
+            background: linear-gradient(90deg, #013223 0%, #006747 49.99%, #013223 100%);
+        }
+        .back{
+            border-radius: 9px;
+background: #FFE3E2;
+        }
+        .border-5{
+            border-radius: 50px;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="bg-white text-black p-4 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <img src="./assets/logo.png" alt="Logo" class="h-10 w-auto">
+                <h1 class="text-lg font-bold">Emergency <br>Service</h1>
+            </div>
+            <div class="flex gap-6 items-center">
+                <span>❤️ <span id="heartCount">0</span></span>
+                <span>🪙 <span id="coinCount">100</span></span>
+                <button class="color border pt-[12px] pb-[12px] pl-[36px] pr-[36px] text-white">Copy</button>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <div class="flex flex-col items-center color-2 pb-[12px] gap-3">
+            <img src="./assets/logo.png" class="mx-auto mt-10 h-16 ">
+            <h2 class="text-4xl text-white">
+                Emergency Service Directory
+            </h2>
+            <p class="text-white text-xl">
+                Government Emergency Services at Your Fingertip – A Project by Government of the People’s Republic of Bangladesh
+            </p>
+        </div>
+    </main>
+    <section>
+        <div class="grid grid-cols-4 gap-6 pl-[58px] pr-[62px] pt-[48px] pb-[82px] ">
+            <!-- Left side (cards) = 3 columns -->
+            <div class="col-span-3 grid grid-cols-3 gap-4">
+                <!-- Card 1 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2">❤️</button>
+                    <img src="./assets/logo.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">National Emergency Number</h2>
+                    <p class="text-gray-500">All</p>
+                    <p class="text-2xl font-semibold mt-2">999</p>
+                    <button>All</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                        <button onclick="copyNumber('999')" class="px-3 py-1 bg-gray-200 rounded w-full ">📋 Copy</button>
+          <button onclick="makeCall('All','999')" class="px-3 py-1 bg-green-500 text-white rounded w-full">📞 Call</button>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2">❤️</button>
+                     <img src="./assets/police.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">Police Helpline</h2>
+                    <p class="text-gray-500">Police</p>
+                    <p class="text-2xl font-semibold mt-2">999</p>
+                    <button>Police</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                         <button onclick="copyNumber('999')" class="px-3 py-1 bg-gray-200 rounded w-full">📋 Copy</button>
+          <button onclick="makeCall('Police Helpline ','999')" class="px-3 py-1 bg-green-500 text-white rounded w-full">📞 Call</button>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2">❤️</button>
+                     <img src="./assets/fire-service.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">Fire Service Number</h2>
+                    <p class="text-gray-500">Fire Service</p>
+                    <p class="text-2xl font-semibold mt-2">999</p>
+                    <button>Fire</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                       <button onclick="copyNumber('999')" class="px-3 py-1 bg-gray-200 rounded w-full ">📋 Copy</button>
+          <button onclick="makeCall('Fire Service','999')" class="px-3 py-1 bg-green-500 text-white rounded w-full">📞 Call</button>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2">❤️</button>
+                     <img src="./assets/emergency.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">Ambulance Service</h2>
+                    <p class="text-gray-500">Ambulance</p>
+                    <p class="text-2xl font-semibold mt-2">1994-999999</p>
+                    <button>Ambulance</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                        <button onclick="copyNumber('1994-999999')" class="px-3 py-1 bg-gray-200 rounded w-full">📋 Copy</button>
+          <button onclick="makeCall('Ambulance Service','1994-999999')" class="px-3 py-1 bg-green-500 text-white rounded w-full">📞 Call</button>
+                    </div>
+                </div>
+                <!-- Card 5 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2">❤️</button>
+                     <img src="./assets/emergency.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">Women & Child Helpline</h2>
+                    <p class="text-gray-500">Women & Child Helpline</p>
+                    <p class="text-2xl font-semibold mt-2">109</p>
+                    <button>Helpline</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                        <button onclick="copyNumber('109')" class="px-3 py-1 bg-gray-200 rounded w-full">📋 Copy</button>
+          <button onclick="makeCall('Helpline','109')" class="px-3 py-1 bg-green-500 text-white rounded w-full">📞 Call</button>
+                    </div>
+                </div>
+                <!-- Card 6 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2">❤️</button>
+                     <img src="./assets/emergency.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">Anti-Corruption Helpline</h2>
+                    <p class="text-gray-500">Anti-Corruption Helpline</p>
+                    <p class="text-2xl font-semibold mt-2">106</p>
+                    <button>Corruprtion</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                       <button onclick="copyNumber('106')" class="px-3 py-1 bg-gray-200 rounded w-full">📋 Copy</button>
+          <button onclick="makeCall('Anti-Corruption Helpline ','106')" class="px-3 py-1 bg-green-500 text-white rounded w-full">📞 Call</button>
+                    </div>
+                </div>
+                <!-- Card 7 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2 " >❤️</button>
+                     <img src="./assets/emergency.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">Electricity Helpline</h2>
+                    <p class="text-gray-500">Electricity Outage</p>
+                    <p class="text-2xl font-semibold mt-2">16216</p>
+                    <button>Electricity</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                       <button onclick="copyNumber('16216')" class="px-3 py-1 bg-gray-200 rounded w-full ">📋 Copy</button>
+          <button onclick="makeCall('Electricity Service','16216')" class="px-3 py-1 bg-green-500 text-white rounded w-full ">📞 Call</button>
+                    </div>
+                </div>
+                <!-- Card 8 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2">❤️</button>
+                     <img src="./assets/brac.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">Brac Helpline</h2>
+                    <p class="text-gray-500">Brac</p>
+                    <p class="text-2xl font-semibold mt-2">16445</p>
+                    <button>Brac</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                       <button onclick="copyNumber('16445')" class="px-3 py-1 bg-gray-200 rounded w-full ">📋 Copy</button>
+          <button onclick="makeCall('Brac','16445')" class="px-3 py-1 bg-green-500 text-white rounded w-full">📞 Call</button>
+                    </div>
+                </div>
+                <!-- Card 9 -->
+                <div class="relative border p-4 shadow rounded">
+                    <button onclick="increaseHeart()" class="absolute top-2 right-2">❤️</button>
+                     <img src="./assets/Bangladesh-Railway.png" class=" back h-10 w-auto ">
+                    <h2 class="text-lg font-bold">Bangladesh Railway Helpline</h2>
+                    <p class="text-gray-500">Bangladesh Railway</p>
+                    <p class="text-2xl font-semibold mt-2">163</p>
+                    <button>Railway</button>
+                    <div class="mt-4 flex gap-2 items-center justify-center">
+                       <button onclick="copyNumber('163')" class="px-3 py-1 bg-gray-200 rounded w-full">📋 Copy</button>
+          <button onclick="makeCall('Fire Service','163')" class="px-3 py-1 bg-green-500 text-white rounded w-full">📞 Call</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Right side (history) = 1 column -->
+            <div class="col-span-1 border p-4 shadow rounded">
+              <div class="flex justify-between items-center">
+        <h2 class="text-lg font-bold">📜 Call History</h2>
+        <button onclick="clearHistory()" class="color border-5 text-white px-2 py-1 text-base pl-[36px] pr-[36px]  pt-[12px] pb-[12px]">Clear History </button>
+      </div>
+      <ul id="historyList" class="mt-4 space-y-2 text-sm text-gray-700"></ul>
+            </div>
+        </div>
+    </section>
+    <script>
+        let heartCount = 0;
+let coinCount = 100;
+
+function increaseHeart() {
+    heartCount++;
+    document.getElementById('heartCount').innerText = heartCount;
+}
+
+function copyNumber(num) {
+    navigator.clipboard.writeText(num);
+    alert("Number Copied: " + num);
+}
+function getCurrentTime() {
+    return new Date().toLocaleTimeString();
+}
+
+function makeCall(service, num) {
+    if (coinCount < 20) {
+        alert("Not enough coin");
+        return;
+    }
+    coinCount -= 20;
+    document.getElementById('coinCount').innerText = coinCount;
+
+    const currentTime = getCurrentTime();
+    alert(`Calling ${service} at ${num}`);
+
+    const historyList = document.getElementById("historyList");
+    const li = document.createElement("li");
+    li.textContent = `${service} - ${num} - ${currentTime}`;
+    historyList.prepend(li);
+}
+
+function clearHistory() {
+    document.getElementById('historyList').innerHTML = '';
+}
+
+    </script>
+</body>
+</html>
